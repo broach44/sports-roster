@@ -1,0 +1,26 @@
+{
+  "player1": {
+  "imageUrl": "https://s3951.pcdn.co/wp-content/uploads/2012/04/predators_2012playoffs.jpg",
+  "name": "Heath Crushedit",
+  "position": "Rinkside",
+  "uid": "1234"
+  },
+  "player2": {
+    "imageUrl": "https://nhl.bamcontent.com/images/photos/304200750/1136x640/cut.jpg",
+    "name": "Bobby Weaver",
+    "position": "Ice",
+    "uid": "??????"
+  },
+  "player3": {
+    "imageUrl": "https://cdn.vox-cdn.com/thumbor/qw_wG_JvNlEVbMb6huH-Hc2XrOo=/0x71:465x381/920x613/filters:focal(0x71:465x381):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/39966552/137818670.0.jpg",
+    "name": "Gnash",
+    "position": "Stands",
+    "uid": "???????"
+  },
+  "player4": {
+    "imageUrl": "https://nhl.bamcontent.com/images/photos/312649292/1136x640/cut.jpg",
+    "name": "Sumone Ells",
+    "position": "Bench",
+    "uid": "???????"
+  }
+}
