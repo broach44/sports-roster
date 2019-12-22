@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 
 import firebaseConnection from '../helpers/data/connection';
 import Navbar from '../components/Navbar/Navbar';
-import Team from '../components/Team/Team';
+import PlayerCardContainer from '../components/PlayerCardContainer/PlayerCardContainer';
 
 import './App.scss';
 
@@ -34,7 +34,7 @@ class App extends React.Component {
       <div className="App">
         <Navbar authed={authed}/>
         {
-          authed && (<Team />)
+          authed && (<PlayerCardContainer />)
         }
       </div>
     );
