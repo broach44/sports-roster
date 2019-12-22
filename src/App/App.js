@@ -2,7 +2,8 @@ import React from 'react';
 import firebase from 'firebase/app';
 
 import firebaseConnection from '../helpers/data/connection';
-import Auth from '../components/Auth/Auth';
+import Navbar from '../components/Navbar/Navbar';
+import Team from '../components/Team/Team';
 
 import './App.scss';
 
@@ -28,9 +29,13 @@ class App extends React.Component {
   }
 
   render() {
+    const { authed } = this.state;
     return (
       <div className="App">
-        <Auth />
+        <Navbar authed={authed}/>
+        {
+          authed && (<Team />)
+        }
       </div>
     );
   }
