@@ -9,7 +9,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $yellow;
-}
+  background: url("https://images.unsplash.com/photo-1547650048-7badb99d7ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
