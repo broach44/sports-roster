@@ -1,6 +1,8 @@
 import React from 'react';
 
 import PlayerCard from '../PlayerCard/PlayerCard';
+import PlayerForm from '../PlayerForm/PlayerForm';
+
 import playerData from '../../helpers/data/playerData';
 import authData from '../../helpers/data/authData';
 import './PlayerCardContainer.scss';
@@ -26,6 +28,15 @@ class PlayerCardContainer extends React.Component {
       .catch((errFromDeletePlayer) => console.error(errFromDeletePlayer));
   }
 
+  createPlayer = (newPlayer) => {
+    playerData.savePlayer(newPlayer)
+      .then(() => {
+        this.getPlayerData();
+      })
+      .catch((errFromCreatePlayer) => console.error(errFromCreatePlayer));
+    this.setState({ imageUrl: '', name: '', position: '' });
+  }
+
   componentDidMount() {
     this.getPlayerData();
   }
@@ -35,6 +46,7 @@ class PlayerCardContainer extends React.Component {
     return (
       <div className="container teamContainer">
         <h2>My Team</h2>
+        <PlayerForm createPlayer={this.createPlayer} />
         <div className="container row justify-content-center">
         { players.map((player) => <PlayerCard key={player.id} player={player} deletePlayer={this.deletePlayer} />)}
         </div>
