@@ -12,6 +12,7 @@ class PlayerCardContainer extends React.Component {
     players: [],
     editMode: false,
     showPlayerForm: false,
+    playerToEdit: {},
   }
 
   componentDidMount() {
@@ -44,8 +45,21 @@ class PlayerCardContainer extends React.Component {
     this.setState({ imageUrl: '', name: '', position: '' });
   }
 
+  updatePlayer = (playerId, updatedPlayer) => {
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then(() => {
+        this.getPlayerData();
+        this.setState({ editMode: false, showPlayerForm: false });
+      })
+      .catch((errFromUpdatePlayer) => console.error(errFromUpdatePlayer));
+  }
+
   setEditMode = (editMode) => {
     this.setState({ editMode, showPlayerForm: true });
+  }
+
+  setPlayerToEdit = (player) => {
+    this.setState({ playerToEdit: player });
   }
 
   setShowPlayerForm = () => {
@@ -57,19 +71,21 @@ class PlayerCardContainer extends React.Component {
   }
 
   render() {
-    const { players } = this.state;
+    const { players, editMode, playerToEdit } = this.state;
     return (
       <div className="container teamContainer">
         <h2>My Team</h2>
-        <button className="btn btn-dark mt-2" onClick={this.setShowPlayerForm}>Add New Player</button>
+        <button className="btn btn-dark m-2" onClick={this.setShowPlayerForm}>Add New Player</button>
         { this.state.showPlayerForm
           && <PlayerForm
               createPlayer={this.createPlayer}
-              editMode={this.state.editMode}
+              editMode={editMode}
+              playerToEdit={playerToEdit}
+              updatePlayer={this.updatePlayer}
               setCancelPlayerCreation={this.setCancelPlayerCreation} />
         }
         <div className="container row justify-content-center">
-        { players.map((player) => <PlayerCard key={player.id} player={player} deletePlayer={this.deletePlayer} />)}
+        { players.map((player) => <PlayerCard key={player.id} player={player} deletePlayer={this.deletePlayer} setEditMode={this.setEditMode} setPlayerToEdit={this.setPlayerToEdit} />)}
         </div>
       </div>
     );

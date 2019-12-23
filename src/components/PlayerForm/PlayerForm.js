@@ -1,17 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import authData from '../../helpers/data/authData';
+import playerShape from '../../helpers/propz/playerShape';
 
 class PlayerForm extends React.Component {
   static propTypes = {
     createPlayer: PropTypes.func,
     setCancelPlayerCreation: PropTypes.func,
+    playerToEdit: playerShape.playerShape,
+    editMode: PropTypes.bool,
+    updatePlayer: PropTypes.func,
   }
 
   state = {
-    image: '',
+    imageUrl: '',
     name: '',
     position: '',
+  }
+
+  componentDidMount() {
+    const { playerToEdit, editMode } = this.props;
+    if (editMode) {
+      this.setState({ imageUrl: playerToEdit.imageUrl, name: playerToEdit.name, position: playerToEdit.position });
+    }
   }
 
   savePlayerEvent = (e) => {
@@ -25,6 +36,18 @@ class PlayerForm extends React.Component {
       position: this.state.position,
     };
     createPlayer(newPlayer);
+  }
+
+  updatePlayerEvent = (e) => {
+    e.preventDefault();
+    const { updatePlayer, playerToEdit } = this.props;
+    const updatedPlayer = {
+      name: this.state.name,
+      position: this.state.position,
+      imageUrl: this.state.imageUrl,
+      uid: playerToEdit.uid,
+    };
+    updatePlayer(playerToEdit.id, updatedPlayer);
   }
 
   positionChange = (e) => {
@@ -45,6 +68,7 @@ class PlayerForm extends React.Component {
 
   render() {
     const { imageUrl, name, position } = this.state;
+    const { editMode } = this.props;
 
     return (
       <form className='col-6 offset-3 PlayerForm'>
@@ -82,8 +106,11 @@ class PlayerForm extends React.Component {
           />
         </div>
       <div>
-        <button className="btn btn-warning" onClick={this.savePlayerEvent}>Save Player</button>
-        <button className="btn btn-danger" onClick={this.setCancelPlayerCreation}>Cancel</button>
+        {
+          (editMode) ? (<button className="btn btn-warning m-2" onClick={this.updatePlayerEvent}>Update Player</button>)
+            : (<button className="btn btn-warning m-2" onClick={this.savePlayerEvent}>Save Player</button>)
+        }
+        <button className="btn btn-outline-warning m-2" onClick={this.setCancelPlayerCreation}>Cancel</button>
       </div>
       </form>
     );
