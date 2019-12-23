@@ -14,16 +14,16 @@ Sports Roster is the first React application that interacts with fireabse that I
 ## Screenshots
 
 #### Logged Out View:
-
+![LoggedOutView](https://raw.githubusercontent.com/broach44/sports-roster/master/screenshots/logged-out-view.png)
 #### Logged In Home View:
-
+![LoggedInHome](https://raw.githubusercontent.com/broach44/sports-roster/master/screenshots/logged-in-home.png)
 #### New Player Form:
-
+![NewPlayerForm](https://raw.githubusercontent.com/broach44/sports-roster/master/screenshots/add-new-player.png)
 #### Update Player Form:
-
+![EditPlayerForm](https://raw.githubusercontent.com/broach44/sports-roster/master/screenshots/edit-player.png)
 ## Demo
 
-****Coming Soon****
+** **Coming Soon** **
 
 ## How to Run
 - Clone down the project
