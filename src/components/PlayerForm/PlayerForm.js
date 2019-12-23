@@ -5,6 +5,7 @@ import authData from '../../helpers/data/authData';
 class PlayerForm extends React.Component {
   static propTypes = {
     createPlayer: PropTypes.func,
+    setCancelPlayerCreation: PropTypes.func,
   }
 
   state = {
@@ -82,6 +83,7 @@ class PlayerForm extends React.Component {
         </div>
       <div>
         <button className="btn btn-warning" onClick={this.savePlayerEvent}>Save Player</button>
+        <button className="btn btn-danger" onClick={this.setCancelPlayerCreation}>Cancel</button>
       </div>
       </form>
     );
