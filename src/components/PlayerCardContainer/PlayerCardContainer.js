@@ -18,6 +18,14 @@ class PlayerCardContainer extends React.Component {
       .catch((errFromGetPlayers) => console.error(errFromGetPlayers));
   }
 
+  deletePlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => {
+        this.getPlayerData();
+      })
+      .catch((errFromDeletePlayer) => console.error(errFromDeletePlayer));
+  }
+
   componentDidMount() {
     this.getPlayerData();
   }
@@ -28,7 +36,7 @@ class PlayerCardContainer extends React.Component {
       <div className="container teamContainer">
         <h2>My Team</h2>
         <div className="container row justify-content-center">
-        { players.map((player) => <PlayerCard key={player.id} player={player} />)}
+        { players.map((player) => <PlayerCard key={player.id} player={player} deletePlayer={this.deletePlayer} />)}
         </div>
       </div>
     );
