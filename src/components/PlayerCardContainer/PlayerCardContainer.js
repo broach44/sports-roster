@@ -5,6 +5,7 @@ import PlayerForm from '../PlayerForm/PlayerForm';
 
 import playerData from '../../helpers/data/playerData';
 import authData from '../../helpers/data/authData';
+
 import './PlayerCardContainer.scss';
 
 class PlayerCardContainer extends React.Component {

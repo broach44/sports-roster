@@ -1,8 +1,10 @@
+@import '../../styles/variables';
+
 .teamContainer {
   background-color: rgba($color: #0000000a, $alpha: .4);
   min-height: 100vh;
 
   h2 {
-    color: gold;
+    color: $yellow;
   }
 }

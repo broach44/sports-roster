@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import authData from '../../helpers/data/authData';
 import playerShape from '../../helpers/propz/playerShape';
 
+import './PlayerForm.scss';
+
 class PlayerForm extends React.Component {
   static propTypes = {
     createPlayer: PropTypes.func,
